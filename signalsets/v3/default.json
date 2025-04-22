@@ -1,4 +1,82 @@
 { "commands": [
-
+{ "hdr": "720", "rax": "728", "dbg": true, "cmd": {"22": "404C"}, "freq": 5,
+  "signals": [
+    {"id": "FORD_ODO", "path": "Trips", "fmt": { "len": 24, "max": 1677721, "div": 10, "unit": "kilometers" }, "name": "Odometer (Instrument panel)", "suggestedMetric": "odometer"}
+  ]},
+{ "hdr": "726", "rax": "72E", "dbg": true, "cmd": {"22": "2813"}, "freq": 5,
+  "signals": [
+    {"id": "FORD_TP_FL", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Front left tire pressure",       "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "FORD_TP_FR", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Front right tire pressure",      "suggestedMetric": "frontRightTirePressure"},
+    {"id": "FORD_TP_RR", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear right outer tire pressure", "suggestedMetric": "rearRightTirePressure"},
+    {"id": "FORD_TP_RL", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear left outer tire pressure",  "suggestedMetric": "rearLeftTirePressure"}
+  ]},
+{ "hdr": "760", "rax": "768", "dbg": true, "cmd": {"22": "3201"}, "freq": 0.25,
+  "signals": [
+    {"id": "FORD_STEER_ANGLE", "path": "Control", "fmt": { "len": 16, "max": 1638, "min": -1638, "div": 20, "add": -1638.4, "unit": "degrees" }, "name": "Steering wheel angle (ABS)", "description": "Positive is rotated to the left, negative is rotated to the right."}
+  ]},
+{ "hdr": "764", "dbg": true, "cmd": {"22": "A224"}, "freq": 0.25,
+  "signals": [
+    {"id": "FORD_CC_TGT_VSS", "path": "Cruise control", "fmt": { "len": 16, "max": 736, "min": -736, "mul": 3.6, "div": 10, "sign": true, "unit": "kilometersPerHour" }, "name": "Target vehicle speed", "description": "The speed of the vehicle ahead of you."}
+  ]},
+{ "hdr": "7DF", "dbg": true, "cmd": {"22": "1E1C"}, "freq": 1,
+  "signals": [
+    {"id": "FORD_TOT", "path": "Transmission", "fmt": { "len": 16, "max": 255, "div": 16, "unit": "celsius" }, "name": "Transmission oil temperature"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1E12"}, "freq": 2,
+  "signals": [
+    {"id": "FORD_FLI", "path": "Fuel", "fmt": { "len": 8, "max": 255, "mul": 100, "div": 255, "unit": "percent" }, "name": "Fuel level", "suggestedMetric": "fuelTankLevel"},
+    {"id": "FORD_GEAR", "path": "Transmission", "name": "Current gear", "description": "The automatic transmission gear.", "fmt": {"len": 8, "map": {
+          "1":  { "description": "First gear",   "value": "1" },
+          "2":  { "description": "Second gear",  "value": "2" },
+          "3":  { "description": "Third gear",   "value": "3" },
+          "4":  { "description": "Fourth gear",  "value": "4" },
+          "5":  { "description": "Fifth gear",   "value": "5" },
+          "6":  { "description": "Sixth gear",   "value": "6" },
+          "7":  { "description": "Seventh gear", "value": "7" },
+          "8":  { "description": "Eighth gear",  "value": "8" },
+          "9":  { "description": "Ninth gear",   "value": "9" },
+          "10": { "description": "Tenth gear",   "value": "10" }
+        }}
+    },
+    {"id": "FORD_GEAR_SHFT", "path": "Transmission", "name": "Shift gear", "fmt": {"len": 8, "map": {
+          "10": { "description": "Manual",  "value": "MANUAL" },
+          "46": { "description": "Drive",   "value": "DRIVE" },
+          "50": { "description": "Neutral", "value": "NEUTRAL" },
+          "60": { "description": "Reverse", "value": "REVERSE" },
+          "70": { "description": "Park",    "value": "PARK" }
+        }}
+    }
+  ]},
+{ "hdr": "7E2", "rax": "7EA", "fcm1": true, "dbg": true, "cmd": {"22": "DD04"}, "freq": 5,
+  "signals": [
+    {"id": "FORD_IAT", "path": "Climate", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Interior temperature"},
+    {"id": "FORD_AAT", "path": "Climate", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Exterior temperature"}
+  ]},
+{ "hdr": "7E4", "rax": "7EC", "fcm1": true, "dbg": true, "cmd": {"22": "4800"}, "freq": 10,
+  "signals": [
+    {"id": "FORD_HVBAT_T",        "path": "Battery", "fmt": { "len": 8,  "max": 205,    "min": -50,                         "add": -50, "unit": "celsius"       }, "name": "HV battery temperature"},
+    {"id": "FORD_HVBAT_SOC",      "path": "Battery", "fmt": { "len": 16, "max": 100,                            "div": 500,             "unit": "percent"       }, "name": "HV battery charge",             "suggestedMetric": "stateOfCharge", "description": "High resolution state of charge."},
+    {"id": "FORD_HVBAT_V",        "path": "Battery", "fmt": { "len": 16, "max": 655.35,                         "div": 100,             "unit": "volts"         }, "name": "HV battery voltage"},
+    {"id": "FORD_HVBAT_AGE",      "path": "Battery", "fmt": { "len": 16, "max": 235926,             "mul": 720, "div": 200,             "unit": "hours"         }, "name": "HV battery age"},
+    {"id": "FORD_HVBAT_SOC_DISP", "path": "Battery", "fmt": { "len": 8,  "max": 100,                            "div": 2,               "unit": "percent"       }, "name": "HV battery charge (displayed)", "suggestedMetric": "stateOfCharge", "description": "The state of charge displayed on the vehicle's dashboard."},
+    {"id": "FORD_HVBAT_KWH",      "path": "Battery", "fmt": { "len": 16, "max": 131.07,                         "div": 500,             "unit": "kilowattHours" }, "name": "HV battery energy"},
+    {"id": "FORD_HVBAT_SOH",      "path": "Battery", "fmt": { "len": 8,  "max": 100,                            "div": 2,               "unit": "percent"       }, "name": "HV battery state of health",    "suggestedMetric": "stateOfHealth"},
+    {"id": "FORD_CHRG_STATE", "path": "Battery", "name": "Charging state", "suggestedMetric": "isCharging", "fmt": {"len": 8, "map": {
+          "0": { "description": "Not ready",        "value": "NOT_READY" },
+          "1": { "description": "Ready",            "value": "READY" },
+          "2": { "description": "Fault",            "value": "FAULT" },
+          "3": { "description": "Wait Check",       "value": "WAIT" },
+          "4": { "description": "Pre-condition",    "value": "PRE_COND" },
+          "5": { "description": "Charging",         "value": "CHARGING" },
+          "6": { "description": "Done",             "value": "DONE" },
+          "7": { "description": "External Charger", "value": "EXT" },
+          "8": { "description": "Initializing",     "value": "INIT" }
+        }}
+    }
+  ]},
+{ "hdr": "7E6", "rax": "7EE", "fcm1": true, "dbg": true, "cmd": {"22": "1E1C"}, "freq": 5,
+  "signals": [
+    {"id": "FORD_TT", "path": "Transmission", "fmt": { "len": 16, "max": 300, "min": -300, "div": 16, "sign": true, "unit": "celsius" }, "name": "Transmission temperature"}
+  ]}
 ]
 }
