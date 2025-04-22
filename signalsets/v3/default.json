@@ -1,18 +1,44 @@
 { "commands": [
-{ "hdr": "720", "rax": "728", "dbg": true, "cmd": {"22": "404C"}, "freq": 5,
+{ "hdr": "720", "rax": "728", "dbg": true, "cmd": {"22": "6185"}, "freq": 1,
   "signals": [
-    {"id": "FORD_ODO", "path": "Trips", "fmt": { "len": 24, "max": 1677721, "div": 10, "unit": "kilometers" }, "name": "Odometer (Instrument panel)", "suggestedMetric": "odometer"}
+    {"id": "FORD_FLI",       "path": "Fuel",  "fmt": {          "len": 8,  "max": 100,     "mul": 100, "div": 255, "unit": "percent"    }, "name": "Fuel tank level",                 "suggestedMetric": "fuelTankLevel"},
+    {"id": "FORD_ODO",       "path": "Trips", "fmt": {          "len": 24, "max": 1677721,             "div": 10,  "unit": "kilometers" }, "name": "Odometer (Instrument panel)",     "suggestedMetric": "odometer"},
+    {"id": "FORD_ODO_TRIP",  "path": "Trips", "fmt": {          "len": 24, "max": 1677721,             "div": 10,  "unit": "kilometers" }, "name": "Trip distance"},
+    {"id": "FORD_TPMS_WARN", "path": "Tires", "fmt": {"bix": 2, "len": 1,  "max": 1,                               "unit": "offon"      }, "name": "Tire pressure warning indicator"}
   ]},
 { "hdr": "726", "rax": "72E", "dbg": true, "cmd": {"22": "2813"}, "freq": 5,
   "signals": [
-    {"id": "FORD_TP_FL", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Front left tire pressure",       "suggestedMetric": "frontLeftTirePressure"},
-    {"id": "FORD_TP_FR", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Front right tire pressure",      "suggestedMetric": "frontRightTirePressure"},
-    {"id": "FORD_TP_RR", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear right outer tire pressure", "suggestedMetric": "rearRightTirePressure"},
-    {"id": "FORD_TP_RL", "path": "Tires", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "psi" }, "name": "Rear left outer tire pressure",  "suggestedMetric": "rearLeftTirePressure"}
+    {"id": "FORD_TP_FL",               "path": "Tires",           "fmt": {           "len": 16, "max": 3276,     "div": 20, "unit": "psi"        }, "name": "Front left tire pressure",       "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "FORD_TP_FR",               "path": "Tires",           "fmt": {           "len": 16, "max": 3276,     "div": 20, "unit": "psi"        }, "name": "Front right tire pressure",      "suggestedMetric": "frontRightTirePressure"},
+    {"id": "FORD_TP_RRO",              "path": "Tires",           "fmt": {           "len": 16, "max": 3276,     "div": 20, "unit": "psi"        }, "name": "Rear right outer tire pressure", "suggestedMetric": "rearRightTirePressure"},
+    {"id": "FORD_TP_RLO",              "path": "Tires",           "fmt": {           "len": 16, "max": 3276,     "div": 20, "unit": "psi"        }, "name": "Rear left outer tire pressure",  "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "FORD_TP_RRI",              "path": "Tires",           "fmt": {           "len": 16, "max": 3276,     "div": 20, "unit": "psi"        }, "name": "Rear right inner tire pressure"},
+    {"id": "FORD_TP_RLI",              "path": "Tires",           "fmt": {           "len": 16, "max": 3276,     "div": 20, "unit": "psi"        }, "name": "Rear left inner tire pressure"},
+    {"id": "FORD_ODO",                 "path": "Trips",           "fmt": {           "len": 24, "max": 16777215,            "unit": "kilometers" }, "name": "Odometer (Instrument panel)",    "suggestedMetric": "odometer"},
+    {"id": "FORD_TP_RR",               "path": "Tires",           "fmt": {           "len": 16, "max": 3276,     "div": 20, "unit": "psi"        }, "name": "Rear right outer tire pressure", "suggestedMetric": "rearRightTirePressure"},
+    {"id": "FORD_TP_RL",               "path": "Tires",           "fmt": {           "len": 16, "max": 3276,     "div": 20, "unit": "psi"        }, "name": "Rear left outer tire pressure",  "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "FORD_HIGHBEAM_STATUS",     "path": "Lights",          "fmt": {           "len": 16, "max": 2,                   "unit": "offon"      }, "name": "Highbeam Status"},
+    {"id": "FORD_HOOD_OPEN",           "path": "Doors",           "fmt": {           "len": 1,  "max": 1,                   "unit": "noyes"      }, "name": "Hood Ajar?"},
+    {"id": "FORD_TRUNK_OPEN",          "path": "Doors & Windows", "fmt": {"bix": 11, "len": 1,  "max": 1,                   "unit": "noyes"      }, "name": "Trunk Ajar?"},
+    {"id": "FORD_RRD_OPEN",            "path": "Doors & Windows", "fmt": {"bix": 12, "len": 1,  "max": 1,                   "unit": "noyes"      }, "name": "Rear Right Door Ajar?"},
+    {"id": "FORD_RLD_OPEN",            "path": "Doors & Windows", "fmt": {"bix": 13, "len": 1,  "max": 1,                   "unit": "noyes"      }, "name": "Rear Left Door Ajar?"},
+    {"id": "FORD_DRIVER_DOOR_OPEN",    "path": "Doors & Windows", "fmt": {"bix": 16, "len": 1,  "max": 1,                   "unit": "noyes"      }, "name": "Driver Door Ajar"},
+    {"id": "FORD_PASSENGER_DOOR_OPEN", "path": "Doors & Windows", "fmt": {"bix": 17, "len": 1,  "max": 1,                   "unit": "noyes"      }, "name": "Passenger Door Ajar?"},
+    {"id": "FORD_EXTERIOR_LIGHT_STATE", "path": "Lights", "name": "Focus Exterior Lighting State", "fmt": {"bix": 0, "len": 1, "map": {
+          "0":   { "description": "0", "value": "0" },
+          "216": { "description": "1", "value": "1" }
+        }}
+    },
+    {"id": "FORD_CENTRAL_LOCK_STATUS", "path": "Doors", "name": "Lock Status", "fmt": {"len": 8, "map": {
+          "0": { "description": "Unlocked", "value": "UNLOCKED" },
+          "2": { "description": "Locked",   "value": "LOCKED" }
+        }}
+    }
   ]},
 { "hdr": "760", "rax": "768", "dbg": true, "cmd": {"22": "3201"}, "freq": 0.25,
   "signals": [
-    {"id": "FORD_STEER_ANGLE", "path": "Control", "fmt": { "len": 16, "max": 1638, "min": -1638, "div": 20, "add": -1638.4, "unit": "degrees" }, "name": "Steering wheel angle (ABS)", "description": "Positive is rotated to the left, negative is rotated to the right."}
+    {"id": "FORD_STEER_ANGLE",   "path": "Control",      "fmt": { "len": 8, "max": 790, "min": -790, "mul": 6.25, "sign": true, "unit": "degrees" }, "name": "Steering wheel angle",      "description": "Positive is rotated to the left, negative is rotated to the right."},
+    {"id": "FORD_PARKING_BRAKE", "path": "Transmission", "fmt": { "len": 1, "max": 1,                                           "unit": "offon"   }, "name": "Focus Parking Brake State"}
   ]},
 { "hdr": "764", "dbg": true, "cmd": {"22": "A224"}, "freq": 0.25,
   "signals": [
@@ -20,12 +46,48 @@
   ]},
 { "hdr": "7DF", "dbg": true, "cmd": {"22": "1E1C"}, "freq": 1,
   "signals": [
-    {"id": "FORD_TOT", "path": "Transmission", "fmt": { "len": 16, "max": 255, "div": 16, "unit": "celsius" }, "name": "Transmission oil temperature"}
+    {"id": "FORD_TOT",       "path": "Transmission", "fmt": { "len": 16, "max": 255, "div": 16, "unit": "celsius" }, "name": "Transmission oil temperature"},
+    {"id": "FORD_EOT",       "path": "Engine",       "fmt": { "len": 8,  "max": 255,            "unit": "scalar"  }, "name": "Engine oil temperature"},
+    {"id": "FORD_GEAR",      "path": "Engine",       "fmt": { "len": 8,  "max": 255,            "unit": "scalar"  }, "name": "Current gear",                 "description": "The automatic transmission gear. Numbers aren't yet mapped to named gears."},
+    {"id": "FORD_GEAR_SHFT", "path": "Engine",       "fmt": { "len": 8,  "max": 255,            "unit": "scalar"  }, "name": "Shift gear"},
+    {"id": "FORD_FLI_v2",    "path": "Fuel",         "fmt": { "len": 8,  "max": 255,            "unit": "scalar"  }, "name": "Fuel level (alternative)"},
+    {"id": "FORD_EOP",       "path": "Engine",       "fmt": { "len": 8,  "max": 255,            "unit": "scalar"  }, "name": "Engine oil pressure"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1E12"}, "freq": 2,
   "signals": [
-    {"id": "FORD_FLI", "path": "Fuel", "fmt": { "len": 8, "max": 255, "mul": 100, "div": 255, "unit": "percent" }, "name": "Fuel level", "suggestedMetric": "fuelTankLevel"},
-    {"id": "FORD_GEAR", "path": "Transmission", "name": "Current gear", "description": "The automatic transmission gear.", "fmt": {"len": 8, "map": {
+    {"id": "FORD_TOT",                              "path": "Engine",       "fmt": {          "len": 16,      "max": 500,      "min": -500,                     "div": 16,  "sign": true,                   "unit": "celsius"    },                                                        "name": "Transmission oil temperature"},
+    {"id": "FORD_FLI",                              "path": "Fuel",         "fmt": {          "len": 8,       "max": 255,                           "mul": 100, "div": 255,                                 "unit": "percent"    },                                                        "name": "Fuel level",                                                                                                                         "suggestedMetric": "fuelTankLevel"},
+    {"id": "FORD_ODO",                              "path": "Trips",        "fmt": {          "len": 24,      "max": 16777215,                                                                              "unit": "kilometers" },                                                        "name": "Odometer",                                                                                                                           "suggestedMetric": "odometer"},
+    {"id": "FORD_[ECU] MAP voltage",                "fmt":                  {      "len": 16, "max": 5,                        "mul": 0.0009765625,                                       "unit": "volts"   },                   "name": "Manifold absolute pressure sensor voltage",      "description": "Typically varies from 1 volt at idle to 5 volts during wide open throttle."},
+    {"id": "FORD_[ECU] LPFP duty cycle",            "fmt":                  {      "len": 16, "max": 100,                      "mul": 0.0030517578,                                       "unit": "percent" },                   "name": "Low pressure fuel pump commanded duty cycle"},
+    {"id": "FORD_[ECU] Commanded lambda",           "fmt":                  {      "len": 16, "max": 5,                        "mul": 0.0000305176,                                       "unit": "scalar"  },                   "name": "Commanded lambda",                               "description": "The ratio of of oxygen in the combustion chamber compared to the amount that should have been present for ideal combustion."},
+    {"id": "FORD_[ECU] VCT intake duty cycle",      "fmt":                  {      "len": 16, "max": 100,                      "mul": 0.0030517578,                                       "unit": "percent" },                   "name": "VCT intake camshaft solenoid duty cycle"},
+    {"id": "FORD_[ECU] VCT exhaust duty cycle",     "fmt":                  {      "len": 16, "max": 100,                      "mul": 0.0030517578,                                       "unit": "percent" },                   "name": "VCT exhaust camshaft solenoid duty cycle"},
+    {"id": "FORD_[ECU] VCT intake actual",          "fmt":                  {      "len": 16, "max": 0,       "min": -50,      "mul": 0.0625,                                             "unit": "degrees" },                   "name": "VCT intake camshaft actual"},
+    {"id": "FORD_[ECU] VCT exhaust actual",         "fmt":                  {      "len": 16, "max": 50,                       "mul": 0.0625,                                             "unit": "degrees" },                   "name": "VCT exhaust camshaft actual"},
+    {"id": "FORD_[ECU] VCT intake error",           "fmt":                  {      "len": 16, "max": 50,      "min": -50,      "mul": 0.0625,                                             "unit": "degrees" },                   "name": "VCT intake camshaft error"},
+    {"id": "FORD_[ECU] VCT exhaust error",          "fmt":                  {      "len": 16, "max": 50,      "min": -50,      "mul": 0.0625,                                             "unit": "degrees" },                   "name": "VCT exhaust camshaft error"},
+    {"id": "FORD_[ECU] HPFP sensor voltage",        "fmt":                  {      "len": 16, "max": 5,                        "mul": 0.0048875855,                                       "unit": "volts"   },                   "name": "High pressure fuel rail sensor voltage"},
+    {"id": "FORD_[ECU] Accelerator pedal position", "fmt":                  {      "len": 8,  "max": 100,                      "mul": 0.5,                                                "unit": "percent" },                   "name": "Accelerator Pedal Position"},
+    {"id": "FORD_[ECU] ETC learned trim",           "fmt":                  {      "len": 16, "max": 90,      "min": -90,      "mul": 0.001953125,                                        "unit": "degrees" },                   "name": "Electronic throttle control learned trim angle"},
+    {"id": "FORD_[ECU] TIP sensor voltage",         "fmt":                  {      "len": 16, "max": 5,                        "mul": 0.0048828125,                                       "unit": "volts"   },                   "name": "Throttle inlet pressure sensor voltage"},
+    {"id": "FORD_[ECU] TIP actual abs",             "fmt":                  {      "len": 16, "max": 60,                       "mul": 0.0011064263,                                       "unit": "psi"     },                   "name": "Throttle inlet pressure absolute"},
+    {"id": "FORD_[ECU] Baro",                       "fmt":                  {      "len": 16, "max": 20,      "min": 8,        "mul": 0.0362553791,                                       "unit": "psi"     },                   "name": "Barometric pressure"},
+    {"id": "FORD_[ECU] Baro Sensor V",              "fmt":                  {      "len": 16, "max": 5,                        "mul": 0.0048875855,                                       "unit": "volts"   },                   "name": "Barometric pressure sensor voltage"},
+    {"id": "FORD_[ECU] Rear O2 V",                  "fmt":                  {      "len": 16, "max": 1,                        "mul": 0.0009765625,                                       "unit": "volts"   },                   "name": "Rear O2 voltage"},
+    {"id": "FORD_[ECU] Evap Pres Sensor V",         "fmt":                  {      "len": 16, "max": 5,                        "mul": 0.1998046869,                                       "unit": "volts"   },                   "name": "Evaporative vapor pressure sensor voltage"},
+    {"id": "FORD_[ECU] ECT",                        "fmt":                  {      "len": 16, "max": 148.889, "min": -40,      "mul": 0.015625,                                           "unit": "celsius" },                   "name": "Engine coolant temperature"},
+    {"id": "FORD_[ECU] AC Pressure",                "fmt":                  {      "len": 16, "max": 1000,    "min": -100,     "mul": 0.2900754962,                                       "unit": "psi"     },                   "name": "Air conditioning compressor pressure"},
+    {"id": "FORD_[ECU] AAT Sensor V",               "fmt":                  {      "len": 16, "max": 5,                        "mul": 0.0048875855,                                       "unit": "volts"   },                   "name": "Ambient air temperature sensor voltage"},
+    {"id": "FORD_[ECU] VCT Exh Des",                "fmt":                  {      "len": 16, "max": 50,                       "mul": 0.0625,                                             "unit": "degrees" },                   "name": "VCT exhaust cam desired"},
+    {"id": "FORD_[ECU] VCT Int Des",                "fmt":                  {      "len": 16, "max": 0,       "min": -50,      "mul": 0.0625,                                             "unit": "degrees" },                   "name": "VCT intake cam desired"},
+    {"id": "FORD_[ECU] CL Lambda Corr",             "fmt":                  {      "len": 16, "max": 5,       "min": -5,       "mul": 0.0001220703,                                       "unit": "scalar"  },                   "name": "Closed loop lambda correction"},
+    {"id": "FORD_[ECU] MCT",                        "fmt":                  {      "len": 8,  "max": 148.889,                                                                             "unit": "celsius" },                   "name": "Manifold charge temperature"},
+    {"id": "FORD_[ECU] HPFP Desired",               "fmt":                  {      "len": 16, "max": 3500,                     "mul": 1.4503773969,                                       "unit": "psi"     },                   "name": "High pressure fuel pressure desired"},
+    {"id": "FORD_[ECU] OAR",                        "fmt":                  {      "len": 16, "max": 1,       "min": -1,       "mul": 0.0000610352,                                       "unit": "scalar"  },                   "name": "Octane adjust ratio"},
+    {"id": "FORD_TOT_v2",                           "path": "Transmission", "fmt": {          "len": 16,      "max": 255,                                       "div": 16,                                  "unit": "celsius"    },                                                        "name": "Transmission oil temperature"},
+    {"id": "FORD_FLI_v3",                           "path": "Fuel",         "fmt": {          "len": 8,       "max": 255,                           "mul": 100, "div": 255,                                 "unit": "percent"    },                                                        "name": "Fuel level",                                                                                                                         "suggestedMetric": "fuelTankLevel"},
+    {"id": "FORD_GEAR", "path": "Engine", "name": "Current gear", "description": "The automatic transmission gear.", "fmt": {"len": 8, "map": {
           "1":  { "description": "First gear",   "value": "1" },
           "2":  { "description": "Second gear",  "value": "2" },
           "3":  { "description": "Third gear",   "value": "3" },
@@ -38,7 +100,28 @@
           "10": { "description": "Tenth gear",   "value": "10" }
         }}
     },
-    {"id": "FORD_GEAR_SHFT", "path": "Transmission", "name": "Shift gear", "fmt": {"len": 8, "map": {
+    {"id": "FORD_GEAR_SHFT", "path": "Engine", "name": "Shift gear", "fmt": {"len": 8, "map": {
+          "10": { "description": "Manual",  "value": "MANUAL" },
+          "46": { "description": "Drive",   "value": "DRIVE" },
+          "50": { "description": "Neutral", "value": "NEUTRAL" },
+          "60": { "description": "Reverse", "value": "REVERSE" },
+          "70": { "description": "Park",    "value": "PARK" }
+        }}
+    },
+    {"id": "FORD_GEAR_v2", "path": "Transmission", "name": "Current gear", "description": "The automatic transmission gear.", "fmt": {"len": 8, "map": {
+          "1":  { "description": "First gear",   "value": "1" },
+          "2":  { "description": "Second gear",  "value": "2" },
+          "3":  { "description": "Third gear",   "value": "3" },
+          "4":  { "description": "Fourth gear",  "value": "4" },
+          "5":  { "description": "Fifth gear",   "value": "5" },
+          "6":  { "description": "Sixth gear",   "value": "6" },
+          "7":  { "description": "Seventh gear", "value": "7" },
+          "8":  { "description": "Eighth gear",  "value": "8" },
+          "9":  { "description": "Ninth gear",   "value": "9" },
+          "10": { "description": "Tenth gear",   "value": "10" }
+        }}
+    },
+    {"id": "FORD_GEAR_SHFT_v2", "path": "Transmission", "name": "Shift gear", "fmt": {"len": 8, "map": {
           "10": { "description": "Manual",  "value": "MANUAL" },
           "46": { "description": "Drive",   "value": "DRIVE" },
           "50": { "description": "Neutral", "value": "NEUTRAL" },
