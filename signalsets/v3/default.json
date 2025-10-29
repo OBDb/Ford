@@ -156,32 +156,32 @@
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "0324"}, "freq": 0.25,
   "signals": [
     {"id": "FORD_HPFP_V",                    "fmt": { "len": 16, "max": 5,                      "div": 204.6, "unit": "volts" }, "name": "High pressure fuel rail sensor voltage"},
-    {"id": "FORD_[ECU] HPFP sensor voltage", "fmt": { "len": 16, "max": 5, "mul": 0.0048875855,               "unit": "volts" }, "name": "High pressure fuel rail sensor voltage"}
+    {"id": "FORD_[ECU] HPFP SENSOR VOLTAGE", "fmt": { "len": 16, "max": 5, "mul": 0.0048875855,               "unit": "volts" }, "name": "High pressure fuel rail sensor voltage"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "032B"}, "freq": 0.25,
   "signals": [
     {"id": "FORD_ACC_POS",                          "fmt": { "len": 8, "max": 100,             "div": 2, "unit": "percent" }, "name": "Accelerator pedal position"},
-    {"id": "FORD_[ECU] Accelerator pedal position", "fmt": { "len": 8, "max": 100, "mul": 0.5,           "unit": "percent" }, "name": "Accelerator Pedal Position"}
+    {"id": "FORD_[ECU] ACCELERATOR PEDAL POSITION", "fmt": { "len": 8, "max": 100, "mul": 0.5,           "unit": "percent" }, "name": "Accelerator pedal position"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "0338"}, "freq": 0.25,
   "signals": [
     {"id": "FORD_ETC_TRIM_LEARNED",       "fmt": { "len": 16, "max": 64, "min": -63.9,                     "div": 512, "sign": true, "unit": "degrees" }, "name": "Electronic throttle control learned trim angle"},
-    {"id": "FORD_[ECU] ETC learned trim", "fmt": { "len": 16, "max": 90, "min": -90,   "mul": 0.001953125,                           "unit": "degrees" }, "name": "Electronic throttle control learned trim angle"}
+    {"id": "FORD_[ECU] ETC LEARNED TRIM", "fmt": { "len": 16, "max": 90, "min": -90,   "mul": 0.001953125,                           "unit": "degrees" }, "name": "Electronic throttle control learned trim angle"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "033C"}, "freq": 0.25,
   "signals": [
     {"id": "FORD_TIP_V",                    "fmt": { "len": 16, "max": 5,                      "div": 204.8, "unit": "volts" }, "name": "Throttle inlet pressure sensor voltage"},
-    {"id": "FORD_[ECU] TIP sensor voltage", "fmt": { "len": 16, "max": 5, "mul": 0.0048828125,               "unit": "volts" }, "name": "Throttle inlet pressure sensor voltage"}
+    {"id": "FORD_[ECU] TIP SENSOR VOLTAGE", "fmt": { "len": 16, "max": 5, "mul": 0.0048828125,               "unit": "volts" }, "name": "Throttle inlet pressure sensor voltage"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "033E"}, "freq": 0.25,
   "signals": [
     {"id": "FORD_TIP_ABS",              "fmt": { "len": 16, "max": 60,                      "div": 903.8107848, "unit": "psi" }, "name": "Throttle inlet pressure absolute"},
-    {"id": "FORD_[ECU] TIP actual abs", "fmt": { "len": 16, "max": 60, "mul": 0.0011064263,                     "unit": "psi" }, "name": "Throttle inlet pressure absolute"}
+    {"id": "FORD_[ECU] TIP ACTUAL ABS", "fmt": { "len": 16, "max": 60, "mul": 0.0011064263,                     "unit": "psi" }, "name": "Throttle inlet pressure absolute"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "0353"}, "freq": 0.25,
   "signals": [
     {"id": "FORD_BARO",       "fmt": { "len": 16, "max": 20, "min": 8,                      "div": 27.582114, "unit": "psi" }, "name": "Barometric pressure"},
-    {"id": "FORD_[ECU] Baro", "fmt": { "len": 16, "max": 20, "min": 8, "mul": 0.0362553791,                   "unit": "psi" }, "name": "Barometric pressure"}
+    {"id": "FORD_[ECU] BARO", "fmt": { "len": 16, "max": 20, "min": 8, "mul": 0.0362553791,                   "unit": "psi" }, "name": "Barometric pressure"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "035A"}, "freq": 0.25,
   "signals": [
@@ -194,7 +194,7 @@
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "038E"}, "freq": 0.25,
   "signals": [
     {"id": "FORD_EVAP_V",                   "fmt": { "len": 16, "max": 5,                      "div": 5.0048876, "sign": true, "unit": "volts" }, "name": "Evaporative vapor pressure sensor voltage"},
-    {"id": "FORD_[ECU] Evap Pres Sensor V", "fmt": { "len": 16, "max": 5, "mul": 0.1998046869,                                 "unit": "volts" }, "name": "Evaporative vapor pressure sensor voltage"}
+    {"id": "FORD_[ECU] EVAP PRES SENSOR V", "fmt": { "len": 16, "max": 5, "mul": 0.1998046869,                                 "unit": "volts" }, "name": "Evaporative vapor pressure sensor voltage"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "038F"}, "freq": 0.25,
   "signals": [
@@ -212,12 +212,12 @@
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "03BC"}, "freq": 0.25,
   "signals": [
     {"id": "FORD_VCT_INT_DES",       "fmt": { "len": 16, "max": 40, "min": -30,                "div": 16, "sign": true, "unit": "degrees" }, "name": "VCT intake cam, desired"},
-    {"id": "FORD_[ECU] VCT Int Des", "fmt": { "len": 16, "max": 0,  "min": -50, "mul": 0.0625,                          "unit": "degrees" }, "name": "VCT intake cam desired"}
+    {"id": "FORD_[ECU] VCT INT DES", "fmt": { "len": 16, "max": 0,  "min": -50, "mul": 0.0625,                          "unit": "degrees" }, "name": "Vct intake cam desired"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "03BD"}, "freq": 0.25,
   "signals": [
     {"id": "FORD_CL_LC",                "fmt": { "len": 16, "max": 3.99, "min": -4,                      "div": 8192, "sign": true, "unit": "scalar" }, "name": "Closed loop lambda correction"},
-    {"id": "FORD_[ECU] CL Lambda Corr", "fmt": { "len": 16, "max": 5,    "min": -5, "mul": 0.0001220703,                            "unit": "scalar" }, "name": "Closed loop lambda correction"}
+    {"id": "FORD_[ECU] CL LAMBDA CORR", "fmt": { "len": 16, "max": 5,    "min": -5, "mul": 0.0001220703,                            "unit": "scalar" }, "name": "Closed loop lambda correction"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "03CA"}, "freq": 0.25,
   "signals": [
