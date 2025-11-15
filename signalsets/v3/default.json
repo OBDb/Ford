@@ -111,11 +111,7 @@
   ]},
 { "hdr": "746", "rax": "74E", "dbg": true, "cmd": {"22": "483D"}, "freq": 10,
   "signals": [
-    {"id": "FORD_DCDC_ENABLE", "path": "Battery", "name": "LV DC-DC converter enable", "fmt": {"len": 8, "map": {
-          "0": { "description": "Disabled", "value": "DISABLED" },
-          "1": { "description": "Enabled",  "value": "ENABLED" }
-        }}
-    }
+    {"id": "FORD_DCDC_ENABLED", "path": "Battery", "fmt": { "len": 8, "max": 1, "unit": "offon" }, "name": "DC-DC converter"}
   ]},
 { "hdr": "760", "rax": "768", "dbg": true, "cmd": {"22": "2B00"}, "freq": 3,
   "signals": [
