@@ -9,7 +9,7 @@
   ]},
 { "hdr": "720", "rax": "728", "dbg": true, "cmd": {"22": "404C"}, "freq": 30,
   "signals": [
-    {"id": "FORD_ODO_V3", "path": "Trips", "fmt": { "len": 24, "max": 1677721, "div": 10, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+    {"id": "FORD_ODO_V2", "path": "Trips", "fmt": { "len": 24, "max": 1677721, "div": 10, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
   ]},
 { "hdr": "720", "rax": "728", "dbg": true, "cmd": {"22": "6185"}, "freq": 1,
   "signals": [
@@ -105,7 +105,7 @@
   ]},
 { "hdr": "726", "rax": "72E", "dbg": true, "cmd": {"22": "DD01"}, "freq": 5,
   "signals": [
-    {"id": "FORD_ODO_V2", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer (Instrument panel)", "suggestedMetric": "odometer"}
+    {"id": "FORD_ODO_726", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer, instrument panel", "suggestedMetric": "odometer"}
   ]},
 { "hdr": "746", "rax": "74E", "dbg": true, "cmd": {"22": "4836"}, "freq": 5,
   "signals": [
