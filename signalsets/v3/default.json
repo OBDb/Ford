@@ -101,11 +101,13 @@
   ]},
 { "hdr": "726", "rax": "72E", "dbg": true, "cmd": {"22": "2817"}, "freq": 5,
   "signals": [
-    {"id": "FORD_TP_RRI", "path": "Tires", "fmt": { "len": 16, "max": 150, "div": 20, "nullmin": 0, "nullmax": 150, "unit": "psi" }, "name": "Rear right inner tire pressure"}
+    {"id": "FORD_TP_RRI",     "path": "Tires", "fmt": { "len": 16, "max": 150,   "div": 20, "nullmin": 0, "nullmax": 150, "unit": "psi"    }, "name": "Rear right inner tire pressure"},
+    {"id": "FORD_TP_RRI_RAW", "path": "Tires", "fmt": { "len": 16, "max": 65535,                                          "unit": "scalar" }, "name": "Rear right inner tire pressure slot", "description": "A rear inner tire position, which this car does not have. Raw count; dual-wheel trucks read it at 1/20 psi."}
   ]},
 { "hdr": "726", "rax": "72E", "dbg": true, "cmd": {"22": "2818"}, "freq": 5,
   "signals": [
-    {"id": "FORD_TP_RLI", "path": "Tires", "fmt": { "len": 16, "max": 150, "div": 20, "nullmin": 0, "nullmax": 150, "unit": "psi" }, "name": "Rear left inner tire pressure"}
+    {"id": "FORD_TP_RLI",     "path": "Tires", "fmt": { "len": 16, "max": 150,   "div": 20, "nullmin": 0, "nullmax": 150, "unit": "psi"    }, "name": "Rear left inner tire pressure"},
+    {"id": "FORD_TP_RLI_RAW", "path": "Tires", "fmt": { "len": 16, "max": 65535,                                          "unit": "scalar" }, "name": "Rear left inner tire pressure slot", "description": "A rear inner tire position, which this car does not have. Raw count; dual-wheel trucks read it at 1/20 psi."}
   ]},
 { "hdr": "726", "rax": "72E", "dbg": true, "cmd": {"22": "401E"}, "freq": 1,
   "signals": [
