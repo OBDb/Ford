@@ -499,8 +499,8 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "0353"}, "freq": 5,
   "signals": [
-    {"id": "FORD_BARO",       "path": "Engine", "fmt": {          "len": 16, "max": 20, "min": 8,            "mul": 615, "div": 16963,               "unit": "psi" },                             "name": "Barometric pressure"},
-    {"id": "FORD_[ECU] Baro", "fmt":            {      "len": 16, "max": 20, "min": 8,  "mul": 0.0362553791,                           "unit": "psi" },            "name": "Barometric pressure"}
+    {"id": "FORD_BARO",       "path": "Engine", "fmt": {          "len": 16, "max": 20, "min": 8,            "mul": 615, "div": 16963,               "unit": "psi" },                             "name": "Barometric pressure",           "suggestedMetric": "barometricPressure"},
+    {"id": "FORD_[ECU] Baro", "fmt":            {      "len": 16, "max": 20, "min": 8,  "mul": 0.0362553791,                           "unit": "psi" },            "name": "Barometric pressure", "suggestedMetric": "barometricPressure"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "035A"}, "freq": 1,
   "signals": [
@@ -955,7 +955,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "09DB"}, "freq": 1,
   "signals": [
-    {"id": "FORD_TURBO_BOOST", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "kilopascal" }, "name": "Turbo boost"}
+    {"id": "FORD_TURBO_BOOST", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "kilopascal" }, "name": "Turbo boost", "suggestedMetric": "absoluteBoostPressure"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "09FE"}, "freq": 1,
   "signals": [
@@ -971,7 +971,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1127"}, "freq": 1,
   "signals": [
-    {"id": "FORD_BAROMETRIC_P", "path": "Engine", "fmt": { "len": 8, "max": 1079.4118, "mul": 338639, "div": 80000, "unit": "kilopascal" }, "name": "Barometric pressure"}
+    {"id": "FORD_BAROMETRIC_P", "path": "Engine", "fmt": { "len": 8, "max": 107.94, "mul": 338639, "div": 800000, "unit": "kilopascal" }, "name": "Barometric pressure", "suggestedMetric": "barometricPressure"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "113C"}, "freq": 1,
   "signals": [
@@ -1338,7 +1338,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "F40B"}, "freq": 0.25,
   "signals": [
-    {"id": "FORD_MAP", "path": "Engine", "fmt": { "len": 8, "max": 36, "mul": 10000, "div": 68947, "unit": "psi" }, "name": "Manifold pressure"}
+    {"id": "FORD_MAP", "path": "Engine", "fmt": { "len": 8, "max": 36, "mul": 10000, "div": 68947, "unit": "psi" }, "name": "Manifold pressure", "suggestedMetric": "absoluteBoostPressure"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "F40C"}, "freq": 0.25,
   "signals": [
