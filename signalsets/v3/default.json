@@ -74,6 +74,10 @@
   "signals": [
     {"id": "FORD_ODO_TRIP", "path": "Trips", "fmt": { "len": 24, "max": 1677721, "div": 10, "unit": "kilometers" }, "name": "Trip distance"}
   ]},
+{ "hdr": "726", "dbg": true, "cmd": {"22": "412A"}, "freq": 1,
+  "signals": [
+    {"id": "FORD_DRIVER_WINDOW", "path": "Windows", "fmt": { "len": 16, "max": 65535, "unit": "percent" }, "name": "Driver window"}
+  ]},
 { "hdr": "726", "rax": "72E", "dbg": true, "cmd": {"22": "280B"}, "freq": 5,
   "signals": [
     {"id": "FORD_TYRE_T", "path": "Tires", "fmt": {"bix": 48, "len": 8, "max": 215, "min": -40, "add": -40, "nullmax": 215, "unit": "celsius" }, "name": "Tire temperature"}
@@ -245,6 +249,14 @@
   "signals": [
     {"id": "FORD_DCDC_ENABLED", "path": "Battery", "fmt": { "len": 8, "max": 1, "unit": "offon" }, "name": "DC-DC converter"}
   ]},
+{ "hdr": "760", "rax": "768", "dbg": true, "cmd": {"22": "2034"}, "freq": 1,
+  "signals": [
+    {"id": "FORD_BRK_HYD_KPA", "path": "Brakes", "fmt": { "len": 16, "max": 30000, "mul": 333, "div": 10, "unit": "kilopascal" }, "name": "Brake fluid line hydraulic pressure"}
+  ]},
+{ "hdr": "760", "rax": "768", "dbg": true, "cmd": {"22": "2823"}, "freq": 1,
+  "signals": [
+    {"id": "FORD_BRK_PDL_PCT", "path": "Brakes", "fmt": { "len": 16, "max": 100, "min": -10, "div": 100, "sign": true, "unit": "percent" }, "name": "Brake pedal position"}
+  ]},
 { "hdr": "760", "rax": "768", "dbg": true, "cmd": {"22": "2B00"}, "freq": 3,
   "signals": [
     {"id": "FORD_PARKING_BRAKE", "path": "Control", "fmt": { "len": 1, "max": 1, "unit": "offon" }, "name": "Parking brake state"}
@@ -310,6 +322,10 @@
   "signals": [
     {"id": "FORD_OUTDOOR_T_BCM", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "nullmax": 215, "unit": "celsius" }, "name": "Outdoor temperature, BCM"}
   ]},
+{ "hdr": "760", "rax": "768", "dbg": true, "cmd": {"22": "F40D"}, "freq": 2,
+  "signals": [
+    {"id": "FORD_VSS_V2", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Vehicle speed", "suggestedMetric": "speed"}
+  ]},
 { "hdr": "764", "rax": "76C", "dbg": true, "cmd": {"22": "A220"}, "freq": 1,
   "signals": [
     {"id": "FORD_FSM_AUTOMATIC", "path": "Engine", "fmt": { "len": 16, "max": 3276, "min": -3276, "div": 10, "sign": true, "unit": "degrees" }, "name": "Forward sensing module automatic alignment offset"}
@@ -331,6 +347,10 @@
     {"id": "FORD_SYNC_GPS_ALTITUDE", "path": "Engine",   "fmt": {            "len": 16, "max": 65535,                                         "unit": "scalar"            }, "name": "Navigation altitude"},
     {"id": "FORD_SYNC_GPS_SPD",      "path": "Movement", "fmt": {"bix": 88,  "len": 16, "max": 235926, "mul": 18, "div": 5, "nullmax": 406.7, "unit": "kilometersPerHour" }, "name": "Navigation speed"},
     {"id": "FORD_SYNC_GPS_HEADING",  "path": "Engine",   "fmt": {"bix": 104, "len": 16, "max": 65535,                                         "unit": "degrees"           }, "name": "Navigation heading"}
+  ]},
+{ "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "4888"}, "freq": 10,
+  "signals": [
+    {"id": "FORD_CPLR_TEMP_A", "path": "Battery", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Charge port coupler temp A"}
   ]},
 { "hdr": "7DF", "dbg": true, "cmd": {"22": "1310"}, "freq": 30,
   "signals": [
@@ -868,6 +888,10 @@
   "signals": [
     {"id": "FORD_TRANSFER_CASE_FLUID_T", "path": "Engine", "fmt": { "len": 16, "max": 2047.9375, "min": -2048, "div": 16, "sign": true, "unit": "celsius" }, "name": "Transfer case fluid temperature"}
   ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "0914"}, "freq": 1,
+  "signals": [
+    {"id": "FORD_APP1_V", "path": "Control", "fmt": { "len": 16, "max": 5, "div": 1024, "unit": "volts" }, "name": "Accelerator pedal position sensor 1 voltage"}
+  ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "091A"}, "freq": 0.25,
   "signals": [
     {"id": "FORD_ETC_ANG_DES", "path": "Engine", "fmt": { "len": 16, "max": 127.99, "div": 512, "unit": "degrees" }, "name": "Throttle angle, desired"}
@@ -1264,6 +1288,23 @@
           "102": { "description": "Neutral", "value": "NEUTRAL" },
           "103": { "description": "Drive",   "value": "DRIVE" }
         }}
+    },
+    {"id": "FORD_GEAR_POS", "path": "Transmission", "name": "Gear position", "suggestedMetric": "gearSelector", "fmt": {"len": 8, "map": {
+          "20": { "description": "Low",     "value": "LOW" },
+          "21": { "description": "Low",     "value": "LOW" },
+          "22": { "description": "Low",     "value": "LOW" },
+          "23": { "description": "Low",     "value": "LOW" },
+          "40": { "description": "Drive",   "value": "DRIVE" },
+          "41": { "description": "Drive",   "value": "DRIVE" },
+          "42": { "description": "Drive",   "value": "DRIVE" },
+          "43": { "description": "Drive",   "value": "DRIVE" },
+          "44": { "description": "Drive",   "value": "DRIVE" },
+          "45": { "description": "Drive",   "value": "DRIVE" },
+          "46": { "description": "Drive",   "value": "DRIVE" },
+          "50": { "description": "Neutral", "value": "NEUTRAL" },
+          "60": { "description": "Reverse", "value": "REVERSE" },
+          "70": { "description": "Park",    "value": "PARK" }
+        }}
     }
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1E35"}, "freq": 0.25,
@@ -1298,6 +1339,10 @@
   "signals": [
     {"id": "FORD_AC_P_SENS_V", "path": "Climate", "fmt": { "len": 16, "max": 5, "div": 1024, "sign": true, "unit": "volts" }, "name": "A/C compressor pressure sensor voltage"}
   ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "9859"}, "freq": 2,
+  "signals": [
+    {"id": "FORD_PTC_HTR_DUTY", "path": "Climate", "fmt": { "len": 8, "max": 100, "unit": "percent" }, "name": "Cabin PTC heater output control"}
+  ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "A211"}, "freq": 1,
   "signals": [
     {"id": "FORD_4_WHL_DRIVE_ENGAGED", "path": "Tires", "fmt": { "len": 16, "max": 6553, "div": 10, "unit": "scalar" }, "name": "4 wheel drive engaged"}
@@ -1318,6 +1363,10 @@
   "signals": [
     {"id": "FORD_ODO_7E0",     "path": "Trips", "fmt": { "len": 24, "max": 16777215,                      "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"},
     {"id": "FORD_MAX_ODO_7E0", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "nullmax": 16777215, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "DD05"}, "freq": 10,
+  "signals": [
+    {"id": "FORD_EXT_TEMP", "path": "Climate", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Exterior ambient temperature"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "F404"}, "freq": 1,
   "signals": [
@@ -1509,6 +1558,10 @@
 { "hdr": "7E2", "rax": "7EA", "dbg": true, "cmd": {"22": "484F"}, "freq": 1,
   "signals": [
     {"id": "FORD_HIGH_V_CHARGER_STAT_7E2", "path": "Battery", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "High voltage charger status"}
+  ]},
+{ "hdr": "7E2", "rax": "7EA", "dbg": true, "cmd": {"22": "4850"}, "freq": 2,
+  "signals": [
+    {"id": "FORD_CHG_OUT_A_V2", "path": "Battery", "fmt": { "len": 16, "max": 655.35, "div": 100, "unit": "amps" }, "name": "Charger DC output current"}
   ]},
 { "hdr": "7E2", "rax": "7EA", "dbg": true, "cmd": {"22": "4851"}, "freq": 1,
   "signals": [
@@ -1707,6 +1760,10 @@
     {"id": "FORD_CONTACTOR_V_NEGATIVE", "path": "Battery", "fmt": { "len": 16, "max": 655.34, "div": 100, "nullmax": 655.34, "unit": "volts" }, "name": "Contactor voltage negative"},
     {"id": "FORD_CONTACTOR_V_NEG",      "path": "Battery", "fmt": { "len": 16, "max": 300,    "div": 10,                     "unit": "volts" }, "name": "Contactor voltage negative"}
   ]},
+{ "hdr": "7E4", "rax": "7EC", "dbg": true, "cmd": {"22": "4807"}, "freq": 5,
+  "signals": [
+    {"id": "FORD_CONTACTOR_V_TOT", "path": "Battery", "fmt": { "len": 16, "max": 655.35, "div": 100, "unit": "volts" }, "name": "Contactor voltage total"}
+  ]},
 { "hdr": "7E4", "rax": "7EC", "dbg": true, "cmd": {"22": "4808"}, "freq": 5,
   "signals": [
     {"id": "FORD_T_RANGE_MAX", "path": "Battery", "fmt": {           "len": 8, "max": 205, "min": -50, "add": -50, "nullmax": 205, "unit": "celsius" }, "name": "Temperature range, maximum"},
@@ -1729,7 +1786,8 @@
 { "hdr": "7E4", "rax": "7EC", "dbg": true, "cmd": {"22": "480B"}, "freq": 1,
   "signals": [
     {"id": "FORD_HVBAT_CURRENT", "path": "Battery", "fmt": { "len": 16, "max": 655, "min": -655, "div": 50, "sign": true, "unit": "amps" }, "name": "High voltage battery current",  "suggestedMetric": "tractionBatteryCurrent"},
-    {"id": "FORD_HVBAT_A_ALT",   "path": "Battery", "fmt": { "len": 16, "max": 300, "min": -300, "div": 50, "sign": true, "unit": "amps" }, "name": "HV battery current, alternate"}
+    {"id": "FORD_HVBAT_A_ALT",   "path": "Battery", "fmt": { "len": 16, "max": 300, "min": -300, "div": 50, "sign": true, "unit": "amps" }, "name": "HV battery current, alternate"},
+    {"id": "FORD_HVBAT_A",       "path": "Battery", "fmt": { "len": 16, "max": 300, "min": -300, "div": 50, "sign": true, "unit": "amps" }, "name": "HV battery current",            "suggestedMetric": "tractionBatteryCurrent"}
   ]},
 { "hdr": "7E4", "rax": "7EC", "fcm1": true, "dbg": true, "cmd": {"22": "480D"}, "freq": 1,
   "signals": [
@@ -1750,8 +1808,9 @@
   ]},
 { "hdr": "7E4", "rax": "7EC", "dbg": true, "cmd": {"22": "4813"}, "freq": 1,
   "signals": [
-    {"id": "FORD_LEAKAGE_RES_BUS",           "path": "Engine", "fmt": { "len": 16, "max": 65535, "nullmax": 65535, "unit": "kiloohms" }, "name": "Leakage resistance bus overall"},
-    {"id": "FORD_HIGH_V_LEAKAGE_RES_BUS_V2", "path": "Engine", "fmt": { "len": 16, "max": 65535,                   "unit": "scalar"   }, "name": "High voltage leakage resistance bus overall, raw count"}
+    {"id": "FORD_LEAKAGE_RES_BUS",           "path": "Engine",  "fmt": { "len": 16, "max": 65535,              "nullmax": 65535, "unit": "kiloohms" }, "name": "Leakage resistance bus overall"},
+    {"id": "FORD_HIGH_V_LEAKAGE_RES_BUS_V2", "path": "Engine",  "fmt": { "len": 16, "max": 65535,                                "unit": "scalar"   }, "name": "High voltage leakage resistance bus overall, raw count"},
+    {"id": "FORD_HV_ISOLATION_KOHM",         "path": "Battery", "fmt": { "len": 16, "max": 1638375, "mul": 25,                   "unit": "scalar"   }, "name": "HV isolation resistance"}
   ]},
 { "hdr": "7E4", "rax": "7EC", "dbg": true, "cmd": {"22": "4815"}, "freq": 1,
   "signals": [
@@ -1798,7 +1857,13 @@
   ]},
 { "hdr": "7E4", "rax": "7EC", "fcm1": true, "dbg": true, "cmd": {"22": "4848"}, "freq": 5,
   "signals": [
-    {"id": "FORD_HVBAT_KWH", "path": "Battery", "fmt": { "len": 16, "max": 131.07, "div": 500, "unit": "kilowattHours" }, "name": "HV battery energy"}
+    {"id": "FORD_HVBAT_KWH",        "path": "Battery", "fmt": { "len": 16, "max": 131.07, "div": 500, "unit": "kilowattHours" }, "name": "HV battery energy"},
+    {"id": "FORD_BAT_TO_EMPTY_KWH", "path": "Battery", "fmt": { "len": 16, "max": 35,     "div": 500, "unit": "kilowattHours" }, "name": "HV battery energy remaining"}
+  ]},
+{ "hdr": "7E4", "rax": "7EC", "dbg": true, "cmd": {"22": "4849"}, "freq": 5,
+  "signals": [
+    {"id": "FORD_LPACK_COOL_IN_T",  "path": "Battery", "fmt": {          "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Lower pack coolant inlet temp"},
+    {"id": "FORD_LPACK_COOL_OUT_T", "path": "Battery", "fmt": {"bix": 8, "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Lower pack coolant outlet temp"}
   ]},
 { "hdr": "7E4", "rax": "7EC", "dbg": true, "cmd": {"22": "484A"}, "freq": 1,
   "signals": [
@@ -1808,6 +1873,15 @@
   "signals": [
     {"id": "FORD_HVBAT_CHG_STATUS", "path": "Battery", "name": "HV battery charging status", "fmt": {"len": 8, "map": {
           "0": { "description": "Not ready", "value": "NOT_READY" },
+          "1": { "description": "Wait",      "value": "WAIT" },
+          "2": { "description": "Ready",     "value": "READY" },
+          "3": { "description": "Charging",  "value": "CHARGING" },
+          "4": { "description": "Done",      "value": "DONE" },
+          "5": { "description": "Fault",     "value": "FAULT" }
+        }}
+    },
+    {"id": "FORD_CHRG_STATE_V2", "path": "Battery", "name": "Charging state", "suggestedMetric": "isCharging", "fmt": {"len": 8, "map": {
+          "0": { "description": "Not Ready", "value": "NOT_CHARGING" },
           "1": { "description": "Wait",      "value": "WAIT" },
           "2": { "description": "Ready",     "value": "READY" },
           "3": { "description": "Charging",  "value": "CHARGING" },
@@ -1870,7 +1944,7 @@
   ]},
 { "hdr": "7E4", "rax": "7EC", "dbg": true, "cmd": {"22": "48F9"}, "freq": 1,
   "signals": [
-    {"id": "FORD_HVBAT_A",     "path": "Battery", "fmt": { "len": 16, "max": 600,  "min": -600,  "div": 10, "sign": true, "unit": "amps" }, "name": "HV battery current",           "suggestedMetric": "tractionBatteryCurrent"},
+    {"id": "FORD_HVBAT_A_V2",  "path": "Battery", "fmt": { "len": 16, "max": 600,  "min": -600,  "div": 10, "sign": true, "unit": "amps" }, "name": "HV battery current",           "suggestedMetric": "tractionBatteryCurrent"},
     {"id": "FORD_HVB_CURRENT", "path": "Battery", "fmt": { "len": 16, "max": 3276, "min": -3276, "div": 10, "sign": true, "unit": "amps" }, "name": "High-voltage battery current"}
   ]},
 { "hdr": "7E4", "rax": "7EC", "dbg": true, "cmd": {"22": "48FB"}, "freq": 1,
